@@ -1,0 +1,49 @@
+{
+  "name": "@manthan/react",
+  "version": "0.1.0",
+  "description": "Manthan UI for React: accessible components in 11 design styles, powered by Tailwind CSS v4.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": ["*.css"],
+  "repository": { "type": "git", "url": "https://github.com/tech-manthan/manthan-react" },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./theme.css": "./theme.css",
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "theme.css"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "vite playground",
+    "build:playground": "vite build playground",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@manthan/base": "^0.1.0",
+    "@manthan/icons": "^0.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "@manthan/base": "file:../manthan-base",
+    "@manthan/icons": "file:../manthan-icons",
+    "@tailwindcss/vite": "^4.3.3",
+    "@testing-library/react": "^16.3.3",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "jsdom": "^30.1.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.3",
+    "tsup": "^8.5.1",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.1"
+  }
+}
