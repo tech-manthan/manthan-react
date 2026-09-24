@@ -5,7 +5,7 @@ export default defineConfig({
   format: ['esm'],
   dts: true,
   clean: true,
-  treeshake: true,
+  treeshake: false,
   target: 'es2022',
   external: ['react', 'react-dom', '@manthan/base', '@manthan/icons'],
   banner: { js: "'use client';" },
