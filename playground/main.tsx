@@ -16,7 +16,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  Calendar,
   Checkbox,
+  Combobox,
+  CommandDialog,
+  DatePicker,
   Dialog,
   DialogClose,
   designStyles,
@@ -43,6 +47,8 @@ import {
   TabsTrigger,
   toast,
   Toaster,
+  ToggleGroup,
+  ToggleGroupItem,
   Tooltip,
   type DesignStyle,
 } from '../src/index';
@@ -150,6 +156,43 @@ function App() {
         </div>
       </div>
 
+      <div className="grid gap-6 md:grid-cols-2">
+        <Card>
+          <Field label="Framework">
+            <Combobox
+              placeholder="Search frameworks…"
+              options={[
+                { value: 'react', label: 'React', group: 'UI' },
+                { value: 'vue', label: 'Vue', group: 'UI' },
+                { value: 'svelte', label: 'Svelte', group: 'UI' },
+                { value: 'angular', label: 'Angular', group: 'UI' },
+                { value: 'next', label: 'Next.js', group: 'Meta' },
+                { value: 'astro', label: 'Astro', group: 'Meta' },
+              ]}
+            />
+          </Field>
+          <Field label="Due date">
+            <DatePicker name="due" />
+          </Field>
+          <ToggleGroup defaultValue="week" aria-label="Range">
+            <ToggleGroupItem value="day">Day</ToggleGroupItem>
+            <ToggleGroupItem value="week">Week</ToggleGroupItem>
+            <ToggleGroupItem value="month">Month</ToggleGroupItem>
+          </ToggleGroup>
+          <p className="text-sm text-fg-muted">Press Ctrl/⌘ K for the command palette.</p>
+        </Card>
+        <Card>
+          <Calendar defaultValue="2026-09-28" />
+        </Card>
+      </div>
+      <CommandDialog
+        options={[
+          { value: 'profile', label: 'Profile', group: 'Settings', shortcut: 'mod+p' },
+          { value: 'billing', label: 'Billing', group: 'Settings' },
+          { value: 'glass', label: 'Switch to Glassmorphism', group: 'Styles' },
+        ]}
+        onSelect={(v) => (v === 'glass' ? setStyle('glass') : toast.info(v))}
+      />
       <Accordion>
         <AccordionItem title="Is it accessible?" defaultOpen>Yes: native elements and WAI-ARIA patterns.</AccordionItem>
         <AccordionItem title="Can I theme it?">Eleven styles plus your own tokens.</AccordionItem>

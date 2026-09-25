@@ -7,3 +7,4 @@ export * from './components/navigation';
 export * from './components/overlay';
 export * from './components/feedback';
 export { useControllableState } from './utils';
+export * from './components/advanced';
