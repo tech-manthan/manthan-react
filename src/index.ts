@@ -11,3 +11,4 @@ export * from './components/advanced';
 export * from './components/data-table';
 export * from './components/file-upload';
 export { useForm } from './hooks/use-form';
+export * from './components/chart';

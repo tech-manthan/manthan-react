@@ -11,6 +11,8 @@ import {
   Breadcrumb,
   Button,
   Card,
+  Chart,
+  Stat,
   CardContent,
   CardDescription,
   CardFooter,
@@ -52,6 +54,13 @@ import {
   Tooltip,
   type DesignStyle,
 } from '../src/index';
+
+const trend = [31, 33, 32, 36, 35, 38, 41, 40, 43, 44, 46, 48];
+const finance = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map((month, i) => ({ month, revenue: 30 + i * 3 + (i % 2) * 2, costs: 22 + i }));
+const financeSeries = [
+  { key: 'revenue', label: 'Revenue' },
+  { key: 'costs', label: 'Costs' },
+];
 
 function App() {
   const params = new URLSearchParams(location.search);
@@ -183,6 +192,14 @@ function App() {
         </Card>
         <Card>
           <Calendar defaultValue="2026-09-28" />
+        </Card>
+      </div>
+      <div className="grid gap-6 md:grid-cols-3">
+        <Card>
+          <Stat label="Revenue" value="$48.2K" delta="+12.4%" sentiment="positive" caption="vs last month" trend={trend} />
+        </Card>
+        <Card className="md:col-span-2">
+          <Chart type="area" title="Revenue vs costs" data={finance} x="month" series={financeSeries} />
         </Card>
       </div>
       <CommandDialog
