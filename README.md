@@ -37,6 +37,23 @@ export function App() {
 }
 ```
 
+## Forms
+
+```tsx
+const form = useForm({
+  initialValues: { email: '', terms: false },
+  rules: { email: [rules.required(), rules.email()], terms: rules.required('Accept the terms.') },
+  onSubmit: async (values) => save(values),
+});
+
+<form onSubmit={form.handleSubmit}>
+  <Field label="Email" error={form.errors.email}><Input {...form.register('email')} /></Field>
+  <Checkbox label="I agree" {...form.registerCheckbox('terms')} />
+  <FileUpload name="avatar" accept="image/*" maxSize={2_000_000} />
+  <Button type="submit" loading={form.submitting}>Save</Button>
+</form>
+```
+
 ## Components
 
 | Group | Components |
@@ -47,7 +64,7 @@ export function App() {
 | Navigation | `Tabs` (+ `TabsList`, `TabsTrigger`, `TabsContent`), `Accordion` + `AccordionItem`, `Breadcrumb`, `Pagination` |
 | Overlays | `Dialog` (`placement` for drawers, `DialogClose`, `useDialog`), `Popover`, `Menu` (+ `MenuItem`, `MenuLabel`, `MenuSeparator`), `Tooltip`, `Toaster` + `toast()` |
 | Feedback | `Alert`, `Progress`, `ProgressCircle`, `Spinner`, `Skeleton` |
-| Advanced | `DataTable` (sort, search, selection, pagination, custom `cell` renderers), `Combobox` (filtering, groups), `Command` + `CommandDialog` (⌘K), `Calendar`, `DatePicker` (ISO `YYYY-MM-DD` values, `name` for forms), `ToggleGroup` + `ToggleGroupItem` |
+| Advanced | `FileUpload` (drag and drop, paste, type/size/count checks), `useForm`, `DataTable` (sort, search, selection, pagination, custom `cell` renderers), `Combobox` (filtering, groups), `Command` + `CommandDialog` (⌘K), `Calendar`, `DatePicker` (ISO `YYYY-MM-DD` values, `name` for forms), `ToggleGroup` + `ToggleGroupItem` |
 
 Everything from `@manthan/base` is re-exported too: recipes (`button()`, `card()`… for styling your own elements), `toast`, `createToaster`, `designStyles`, `applyTheme`, `cx`.
 

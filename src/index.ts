@@ -9,3 +9,5 @@ export * from './components/feedback';
 export { useControllableState } from './utils';
 export * from './components/advanced';
 export * from './components/data-table';
+export * from './components/file-upload';
+export { useForm } from './hooks/use-form';
