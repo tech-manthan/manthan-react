@@ -360,14 +360,14 @@ export function Calendar({
           {weeks.map((week) => (
             <tr key={week[0]!.date}>
               {week.map((day) => (
-                <td key={day.date} className={s.cell()}>
+                <td key={day.date} className={s.cell()} aria-selected={day.date === selected || undefined}>
                   <button
                     type="button"
                     data-date={day.date}
                     data-outside={day.inMonth ? undefined : ''}
                     data-today={day.isToday ? '' : undefined}
                     aria-current={day.isToday ? 'date' : undefined}
-                    aria-selected={day.date === selected || undefined}
+                    data-selected={day.date === selected ? '' : undefined}
                     aria-label={formatDate(day.date, locale, { dateStyle: 'full' })}
                     tabIndex={day.date === focused ? 0 : -1}
                     disabled={isDateDisabled(day.date, constraints)}
@@ -507,7 +507,7 @@ export function ToggleGroup(props: ToggleGroupProps) {
   };
   return (
     <ToggleGroupContext.Provider value={ctx}>
-      <div ref={ref} role="group" aria-orientation={orientation} className={s.root(className)} {...rest}>
+      <div ref={ref} role="group" data-orientation={orientation} className={s.root(className)} {...rest}>
         {children}
       </div>
     </ToggleGroupContext.Provider>
