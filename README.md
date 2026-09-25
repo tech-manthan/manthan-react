@@ -47,7 +47,7 @@ export function App() {
 | Navigation | `Tabs` (+ `TabsList`, `TabsTrigger`, `TabsContent`), `Accordion` + `AccordionItem`, `Breadcrumb`, `Pagination` |
 | Overlays | `Dialog` (`placement` for drawers, `DialogClose`, `useDialog`), `Popover`, `Menu` (+ `MenuItem`, `MenuLabel`, `MenuSeparator`), `Tooltip`, `Toaster` + `toast()` |
 | Feedback | `Alert`, `Progress`, `ProgressCircle`, `Spinner`, `Skeleton` |
-| Advanced | `Combobox` (filtering, groups), `Command` + `CommandDialog` (⌘K), `Calendar`, `DatePicker` (ISO `YYYY-MM-DD` values, `name` for forms), `ToggleGroup` + `ToggleGroupItem` |
+| Advanced | `DataTable` (sort, search, selection, pagination, custom `cell` renderers), `Combobox` (filtering, groups), `Command` + `CommandDialog` (⌘K), `Calendar`, `DatePicker` (ISO `YYYY-MM-DD` values, `name` for forms), `ToggleGroup` + `ToggleGroupItem` |
 
 Everything from `@manthan/base` is re-exported too: recipes (`button()`, `card()`… for styling your own elements), `toast`, `createToaster`, `designStyles`, `applyTheme`, `cx`.
 
