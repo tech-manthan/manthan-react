@@ -4,23 +4,37 @@
   "description": "Manthan UI for React: accessible components in 11 design styles, powered by Tailwind CSS v4.",
   "license": "MIT",
   "type": "module",
-  "sideEffects": ["*.css"],
-  "repository": { "type": "git", "url": "https://github.com/tech-manthan/manthan-react" },
+  "sideEffects": [
+    "*.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tech-manthan/manthan-react"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
     "./theme.css": "./theme.css",
     "./package.json": "./package.json"
   },
-  "files": ["dist", "theme.css"],
+  "files": [
+    "dist",
+    "theme.css"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "vite playground",
     "build:playground": "vite build playground",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
   },
   "peerDependencies": {
     "@manthan/base": "^0.1.0",
@@ -30,6 +44,7 @@
     "tailwindcss": "^4.1.0"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.1",
     "@manthan/base": "file:../manthan-base",
     "@manthan/icons": "file:../manthan-icons",
     "@tailwindcss/vite": "^4.3.3",
@@ -45,5 +60,8 @@
     "typescript": "~6.0.3",
     "vite": "^8.3.1",
     "vitest": "^5.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
