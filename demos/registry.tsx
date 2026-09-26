@@ -3,6 +3,7 @@ import { Button } from '../src/components/button';
 import { Input } from '../src/components/form';
 import { Dialog } from '../src/components/overlay';
 import { DataTable } from '../src/components/data-table';
+import { Chart } from '../src/components/chart';
 
 const rows = [
   { id: 'INV-1001', customer: 'Ada Lovelace', status: 'Paid' },
@@ -14,6 +15,8 @@ const columns = [
   { key: 'customer', header: 'Customer' },
   { key: 'status', header: 'Status' },
 ];
+const chartData = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map((month, i) => ({ month, revenue: 30 + i * 3 }));
+const chartSeries = [{ key: 'revenue', label: 'Revenue' }];
 
 export const demos: Record<string, () => ReactElement> = {
   button: () => (
@@ -28,4 +31,5 @@ export const demos: Record<string, () => ReactElement> = {
     </Dialog>
   ),
   'data-table': () => <DataTable columns={columns} rows={rows} pageSize={3} />,
+  chart: () => <Chart type="area" data={chartData} x="month" series={chartSeries} height={200} />,
 };
